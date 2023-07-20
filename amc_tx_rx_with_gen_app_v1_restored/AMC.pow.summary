@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Thu Jul 20 10:00:53 2023
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : AMC
+Top-level Entity Name : amc1feb22
+Family : MAX 10
+Device : 10M04SAE144I7G
+Power Models : Final
+Total Thermal Power Dissipation : 649.85 mW
+Core Dynamic Thermal Power Dissipation : 444.11 mW
+Core Static Thermal Power Dissipation : 122.75 mW
+I/O Thermal Power Dissipation : 82.98 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

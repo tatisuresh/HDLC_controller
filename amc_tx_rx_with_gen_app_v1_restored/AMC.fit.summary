@@ -1,0 +1,18 @@
+Fitter Status : Successful - Thu Jul 20 10:00:46 2023
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : AMC
+Top-level Entity Name : amc1feb22
+Family : MAX 10
+Device : 10M04SAE144I7G
+Timing Models : Final
+Total logic elements : 3,393 / 4,032 ( 84 % )
+    Total combinational functions : 3,051 / 4,032 ( 76 % )
+    Dedicated logic registers : 1,950 / 4,032 ( 48 % )
+Total registers : 1950
+Total pins : 43 / 101 ( 43 % )
+Total virtual pins : 0
+Total memory bits : 4,096 / 193,536 ( 2 % )
+Embedded Multiplier 9-bit elements : 0 / 40 ( 0 % )
+Total PLLs : 1 / 1 ( 100 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )

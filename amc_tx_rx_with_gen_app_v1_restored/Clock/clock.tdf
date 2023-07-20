@@ -1,0 +1,230 @@
+
+-- Includes
+include "pll88a160.inc";
+--include "Clock/pll33.inc";
+
+subdesign	'Clock'
+(
+		ClockIn1	: input;
+		ClockIn2	: input;
+--		Ok			: output;
+--
+--		Sync8Hz		: output;
+--		Sync200Hz	: output;
+--		Sync1kHz	: output;
+--		Sync200kHz	: output;
+--		Sync100kHz	: output;
+--		Clock200kHz	: output;
+--		Sync2MHz	: output;
+--		Sync4MHz	: output; -- Derived from 88 MHz
+--		Sync8MHz	: output; -- Derived from 88 MHz
+--		Sync11MHz	: output; -- Derived from 88 MHz
+--		Sync22MHz	: output; -- Derived from 88 MHz
+--		Sync44MHz	: output; -- Derived from 88 MHz
+--		Clock8M25Hz	: output; -- Derived from 33 MHz
+--		Clock11MHz	: output; -- Derived from 33 MHz
+    	Clock33MHz  : output;
+--    Clock33MHz_out  : output;		
+--		Clock40MHz	: output;
+--		Clock80MHz	: output;
+--		Clock88MHz	: output;
+		Clock99MHz	: output;
+		Clock160MHz	: output;
+		Clock687kHz : output;
+	   --Clock99MHz_ppl1	: output;
+)
+variable
+	pll1			: pll88a160;
+--	pll2			: pll33;  -- hari commented on 12nov22
+	33MHz			: node;
+--	88MHz			: node;
+   99MHz			: node;
+	160MHz	   : node;
+	687KHz      : node;
+	--99MHz_pll1  : node;
+
+--	d4Deler[1..0]	: dff; -- in 33MHz, out 8.25 MHz
+--	d8Deler[2..0]	: dff; -- in 88MHz, out 11 MHz
+--	d44Deler[5..0]	: dff; -- in 88MHz, out 4MHz, 2MHz
+--	no44DelerIsEnd	: node;
+--	de10Deler[3..0]	: dffe; -- in 2 MHz, out 200 kHz
+--	no10DelerIsEnd	: node;
+--	de2Deler		: dffe;
+--	no2DelerIsEnd	: node;
+--	de100Deler[6..0]: dffe; -- in 200 kHz, out 1 kHz
+--	no100DelerIsEnd	: node;
+--	de5Deler[2..0]	: dffe; -- in 1 kHz, out 200 Hz
+--	no5DelerIsEnd	: node;
+--	de25Deler[4..0]	: dffe; -- in 200 kHz, out 8 Hz
+--	no25DelerIsEnd	: node;
+--	d4DelerA[1..0]	: dff;	-- in 160 MHz, out 80 en 40 MHz.
+--	
+--	
+--	dOut11MHz		: dff;
+--	dSyncOut44MHz	: dff;
+--	dSyncOut22MHz	: dff;
+--	dSyncOut11MHz	: dff;
+--	dOut8M25Hz		: dff;
+--	dSyncOut8MHz	: dff;
+--	dSyncOut4MHz	: dff;
+--	dSyncOut2MHz	: dff;
+--	dSyncOut200Hz	: dff;
+--	dSyncOut200kHz	: dff;
+--	dSyncOut100kHz	: dff;
+--	dSyncOut1kHz	: dff;
+--	dSyncOut8Hz		: dff;
+--	dOut200kHz		: dff;
+--	dOut40MHz		: dff;
+--	dOut80MHz		: dff;
+begin
+	-- pll1,2
+	pll1.inclk0	= ClockIn1;
+--	88MHz		= pll1.c1;  -- hari commented on 12nov22
+	99MHz		= pll1.c1;  -- hari added on 12nov22
+   687KHz	= pll1.c2;  -- hari added on 12nov22
+	160MHz	= pll1.c0;
+	33MHZ  = ClockIn2;
+	--99MHz_pll1  = pll1.c2;
+--	pll2.inclk0	= ClockIn2; -- hari commented on 12nov22
+--	33MHz		= pll2.c0;  -- hari commented on 12nov22
+--	99MHz		= pll2.c1;    -- hari commented on 12nov22
+--	88MHz		= pll2.c1;  -- hari added and commented on 12nov22
+
+--	Ok			= pll1.locked and pll2.locked;
+
+--	-- 33 MHz divided by 4
+--	d4Deler[].clk	= 33MHz;
+--	d4Deler[].d		= d4Deler[].q + 1;
+	
+--	-- 88 MHz divided by 8
+--	d8Deler[].clk	= 88MHz;
+--	d8Deler[].d		= d8Deler[].q + 1;
+	
+--	-- 88 MHz divided by 44
+--	-- 44 deler
+--	d44Deler[].clk	= 88MHz;
+--	no44DelerIsEnd	= ( d44Deler[].q == 43 );
+--	if ( no44DelerIsEnd ) then
+--		d44Deler[].d = 0;
+--	else
+--		d44Deler[].d = d44Deler[].q + 1;
+--	end if;
+--
+--	-- 160 MHz divided by 4
+--	d4DelerA[].clk	= 160MHz;
+--	d4DelerA[].d 	= d4DelerA[].q + 1;
+--
+--	-- 2 MHz divided by 10
+--	de10Deler[].clk	= 88MHz;
+--	no10DelerIsEnd	= ( de10Deler[].q == 9 );
+--	de10Deler[].ena	= no44DelerIsEnd;
+--	if ( no10DelerIsEnd ) then 
+--		de10Deler[].d = 0;
+--	else
+--		de10Deler[].d = de10Deler[].q + 1;
+--	end if;
+--	
+--	-- 200 kHz divided by 2
+--	de2Deler.clk= 88MHz;
+--	no2DelerIsend	= de2Deler.q;
+--	de2Deler.ena	= no44DelerIsEnd and 
+--					  no10DelerIsEnd;
+--	de2Deler.d		= not de2Deler.q;
+--
+--	-- 100 kHz divided by 100
+--	de100Deler[].clk= 88MHz;
+--	no100DelerIsEnd	= ( de100Deler[].q == 99 );
+--	de100Deler[].ena= no44DelerIsEnd and 
+--					  no10DelerIsEnd and
+--					  no2DelerIsend;
+--	if ( no100DelerIsEnd ) then 
+--		de100Deler[].d = 0;
+--	else
+--		de100Deler[].d = de100Deler[].q + 1;
+--	end if;
+--	
+--	-- 1 kHz divided by 5
+--	de5Deler[].clk	= 88MHz;
+--	no5DelerIsEnd	= ( de5Deler[].q == 4 );
+--	de5Deler[].ena	= no44DelerIsEnd and 
+--					  no10DelerIsEnd and
+--					  no2DelerIsend and
+--					  no100DelerIsEnd;
+--	if ( no5DelerIsEnd ) then 
+--		de5Deler[].d = 0;
+--	else
+--		de5Deler[].d = de5Deler[].q + 1;
+--	end if;
+--
+--	-- 200 Hz divided by 25
+--	de25Deler[].clk	= 88MHz;
+--	no25DelerIsEnd	= ( de25Deler[].q == 24 );
+--	de25Deler[].ena	= no44DelerIsEnd and 
+--					  no10DelerIsEnd and
+--					  no2DelerIsend and
+--					  no100DelerIsEnd and
+--					  no5DelerIsEnd ;
+--	if ( no25DelerIsEnd ) then 
+--		de25Deler[].d = 0;
+--	else
+--		de25Deler[].d = de25Deler[].q + 1;
+--	end if;
+--
+--	-- Synchronisation
+--	dSyncOut8Hz.d		= de25Deler[4].q;
+--	dSyncOut200Hz.d		= (de5Deler[].q == 0);
+--	dSyncOut1kHz.d		= de100Deler[6].q;
+--	dOut200kHz.d		= de10Deler[3].q;
+--	dSyncOut200kHz.d	= (de10Deler[].q == 0);
+--	dSyncOut100kHz.d	= de2Deler.q;
+--	dSyncOut2MHz.d		= d44Deler[5].q;
+--	dSyncOut4MHz.d 		= (d44Deler[].q == 0) or (d44Deler[].q == 22);
+--	dSyncOut8MHz.d		= (d44Deler[].q == 0) or (d44Deler[].q == 11) or (d44Deler[].q == 22) or (d44Deler[].q == 33);
+--	dSyncOut11MHz.d		= (d8Deler[2..0].q == 0);
+--	dSyncOut22MHz.d		= (d8Deler[1..0].q == 0);
+--	dSyncOut44MHz.d		= (d8Deler[0].q    == 0);
+--	dOut11MHz.d			= d8Deler[2].q;
+--	dOut40MHz.d			= d4DelerA[1].q;
+--	dOut80MHz.d			= d4DelerA[0].q;
+--	dOut8M25Hz.d		= d4Deler[1].q;
+--
+--	dSyncOut200Hz.clk	= 88MHz;
+--	dSyncOut200kHz.clk	= 88MHz;
+--	dSyncOut100kHz.clk	= 88MHz;
+--	dSyncOut1kHz.clk	= 88MHz;
+--	dSyncOut8Hz.clk		= 88MHz;
+--	dSyncOut2MHz.clk	= 88MHz;
+--	dOut11MHz.clk		= 88MHz;
+--	dOut200kHz.clk		= 88MHz;
+--	dSyncOut4MHz.clk	= 88MHz;
+--	dSyncOut8MHz.clk	= 88MHz;
+--	dSyncOut11MHz.clk	= 88MHz;
+--	dSyncOut22MHz.clk	= 88MHz;
+--	dSyncOut44MHz.clk	= 88MHz;
+--	dOut40MHz.clk		= 160MHz;
+--	dOut80MHz.clk		= 160MHz;
+--	dOut8M25Hz.clk		= 33MHz;
+--	
+--	Sync8Hz		= dSyncOut8Hz.q;
+--	Sync200Hz	= dSyncOut200Hz.q;
+--	Sync1kHz	= dSyncOut1kHz.q;
+--	Clock200kHz	= dOut200kHz.q;
+--	Sync200kHz	= dSyncOut200kHz.q;
+--	Sync100kHz	= dSyncOut100kHz.q;
+--	Sync2MHz	= dSyncOut2MHz.q;
+--	Sync4MHz	= dSyncOut4MHz.q;
+--	Sync8MHz	= dSyncOut8MHz.q;
+--	Sync11MHz	= dSyncOut11MHz.q;
+--	Sync22MHz	= dSyncOut22MHz.q;
+--	Sync44MHz	= dSyncOut44MHz.q;
+--	Clock11MHz	= dOut11MHz.q;
+--	Clock40MHz	= dOut40MHz.q;
+--	Clock80MHz	= dOut80MHz.q;
+	Clock33MHz	= 33MHz;
+--	Clock88MHz	= 88MHz;
+	Clock99MHz	= 99MHz;
+	Clock160MHz	= 160MHz;
+	Clock687kHz	= 687KHz;
+	--Clock99MHz_ppl1 = 99MHz_pll1;
+--	Clock8M25Hz	= dOut8M25Hz.q;
+end;

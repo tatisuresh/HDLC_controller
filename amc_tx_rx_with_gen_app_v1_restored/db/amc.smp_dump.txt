@@ -1,0 +1,101 @@
+
+State Machine - |amc1feb22|CPU_Interafce:inst2|tx_allinta_nxt
+Name tx_allinta_nxt.st_allinta5 tx_allinta_nxt.st_allinta4 tx_allinta_nxt.st_allinta3 tx_allinta_nxt.st_allinta2 tx_allinta_nxt.st_allinta1 
+tx_allinta_nxt.st_allinta1 0 0 0 0 0 
+tx_allinta_nxt.st_allinta2 0 0 0 1 1 
+tx_allinta_nxt.st_allinta3 0 0 1 0 1 
+tx_allinta_nxt.st_allinta4 0 1 0 0 1 
+tx_allinta_nxt.st_allinta5 1 0 0 0 1 
+
+State Machine - |amc1feb22|CPU_Interafce:inst2|intstatus_anxt
+Name intstatus_anxt.sta_intstatus7 intstatus_anxt.sta_intstatus6 intstatus_anxt.sta_intstatus5 intstatus_anxt.sta_intstatus4 intstatus_anxt.sta_intstatus3 intstatus_anxt.sta_intstatus2 intstatus_anxt.sta_intstatus1 
+intstatus_anxt.sta_intstatus1 0 0 0 0 0 0 0 
+intstatus_anxt.sta_intstatus2 0 0 0 0 0 1 1 
+intstatus_anxt.sta_intstatus3 0 0 0 0 1 0 1 
+intstatus_anxt.sta_intstatus4 0 0 0 1 0 0 1 
+intstatus_anxt.sta_intstatus5 0 0 1 0 0 0 1 
+intstatus_anxt.sta_intstatus6 0 1 0 0 0 0 1 
+intstatus_anxt.sta_intstatus7 1 0 0 0 0 0 1 
+
+State Machine - |amc1feb22|CPU_Interafce:inst2|rx2frma_nxt
+Name rx2frma_nxt.sta_rx2frm5 rx2frma_nxt.sta_rx2frm4 rx2frma_nxt.sta_rx2frm3 rx2frma_nxt.sta_rx2frm2 rx2frma_nxt.sta_rx2frm1 
+rx2frma_nxt.sta_rx2frm1 0 0 0 0 0 
+rx2frma_nxt.sta_rx2frm2 0 0 0 1 1 
+rx2frma_nxt.sta_rx2frm3 0 0 1 0 1 
+rx2frma_nxt.sta_rx2frm4 0 1 0 0 1 
+rx2frma_nxt.sta_rx2frm5 1 0 0 0 1 
+
+State Machine - |amc1feb22|CPU_Interafce:inst2|rxfrma_nxt
+Name rxfrma_nxt.sta_rxfrm7 rxfrma_nxt.sta_rxfrm6 rxfrma_nxt.sta_rxfrm5 rxfrma_nxt.sta_rxfrm4 rxfrma_nxt.sta_rxfrm3 rxfrma_nxt.sta_rxfrm2 rxfrma_nxt.sta_rxfrm1 
+rxfrma_nxt.sta_rxfrm1 0 0 0 0 0 0 0 
+rxfrma_nxt.sta_rxfrm2 0 0 0 0 0 1 1 
+rxfrma_nxt.sta_rxfrm3 0 0 0 0 1 0 1 
+rxfrma_nxt.sta_rxfrm4 0 0 0 1 0 0 1 
+rxfrma_nxt.sta_rxfrm5 0 0 1 0 0 0 1 
+rxfrma_nxt.sta_rxfrm6 0 1 0 0 0 0 1 
+rxfrma_nxt.sta_rxfrm7 1 0 0 0 0 0 1 
+
+State Machine - |amc1feb22|CPU_Interafce:inst2|debug_nxstate
+Name debug_nxstate.debug3 debug_nxstate.debug2 debug_nxstate.debug1 debug_nxstate.debug0 
+debug_nxstate.debug0 0 0 0 0 
+debug_nxstate.debug1 0 0 1 1 
+debug_nxstate.debug2 0 1 0 1 
+debug_nxstate.debug3 1 0 0 1 
+
+State Machine - |amc1feb22|CPU_Interafce:inst2|cpubus_nxt
+Name cpubus_nxt.cpubus_nxt5 cpubus_nxt.cpubus_nxt4 cpubus_nxt.cpubus_nxt3 cpubus_nxt.cpubus_nxt2 cpubus_nxt.cpubus_nxt1 
+cpubus_nxt.cpubus_nxt1 0 0 0 0 0 
+cpubus_nxt.cpubus_nxt2 0 0 0 1 1 
+cpubus_nxt.cpubus_nxt3 0 0 1 0 1 
+cpubus_nxt.cpubus_nxt4 0 1 0 0 1 
+cpubus_nxt.cpubus_nxt5 1 0 0 0 1 
+
+State Machine - |amc1feb22|CPU_Interafce:inst2|cdr_fifo_nxstate
+Name cdr_fifo_nxstate.cdr_fifo3 cdr_fifo_nxstate.cdr_fifo2 cdr_fifo_nxstate.cdr_fifo1 
+cdr_fifo_nxstate.cdr_fifo1 0 0 0 
+cdr_fifo_nxstate.cdr_fifo2 0 1 1 
+cdr_fifo_nxstate.cdr_fifo3 1 0 1 
+
+State Machine - |amc1feb22|CPU_Interafce:inst2|SC_HDLC_top:x1|HDLC_TRANSMIT:TX|ZS_State
+Name ZS_State.Stuff ZS_State.ZS5 ZS_State.ZS4 ZS_State.ZS3 ZS_State.ZS2 ZS_State.ZS1 ZS_State.ZS0 
+ZS_State.ZS0 0 0 0 0 0 0 0 
+ZS_State.ZS1 0 0 0 0 0 1 1 
+ZS_State.ZS2 0 0 0 0 1 0 1 
+ZS_State.ZS3 0 0 0 1 0 0 1 
+ZS_State.ZS4 0 0 1 0 0 0 1 
+ZS_State.ZS5 0 1 0 0 0 0 1 
+ZS_State.Stuff 1 0 0 0 0 0 1 
+
+State Machine - |amc1feb22|CPU_Interafce:inst2|SC_HDLC_top:x1|HDLC_TRANSMIT:TX|FI_State
+Name FI_State.NF FI_State.FI7 FI_State.FI6 FI_State.FI5 FI_State.FI4 FI_State.FI3 FI_State.FI2 FI_State.FI1 FI_State.FI0 
+FI_State.FI0 0 0 0 0 0 0 0 0 0 
+FI_State.FI1 0 0 0 0 0 0 0 1 1 
+FI_State.FI2 0 0 0 0 0 0 1 0 1 
+FI_State.FI3 0 0 0 0 0 1 0 0 1 
+FI_State.FI4 0 0 0 0 1 0 0 0 1 
+FI_State.FI5 0 0 0 1 0 0 0 0 1 
+FI_State.FI6 0 0 1 0 0 0 0 0 1 
+FI_State.FI7 0 1 0 0 0 0 0 0 1 
+FI_State.NF 1 0 0 0 0 0 0 0 1 
+
+State Machine - |amc1feb22|CPU_Interafce:inst2|SC_HDLC_top:x1|HDLC_RECEIVE:RX|Z_State
+Name Z_State.Unstuff Z_State.ZU5 Z_State.ZU4 Z_State.ZU3 Z_State.ZU2 Z_State.ZU1 Z_State.ZU0 
+Z_State.ZU0 0 0 0 0 0 0 0 
+Z_State.ZU1 0 0 0 0 0 1 1 
+Z_State.ZU2 0 0 0 0 1 0 1 
+Z_State.ZU3 0 0 0 1 0 0 1 
+Z_State.ZU4 0 0 1 0 0 0 1 
+Z_State.ZU5 0 1 0 0 0 0 1 
+Z_State.Unstuff 1 0 0 0 0 0 1 
+
+State Machine - |amc1feb22|CPU_Interafce:inst2|SC_HDLC_top:x1|HDLC_RECEIVE:RX|F_State
+Name F_State.Idle F_State.Flag F_State.FD6 F_State.FD5 F_State.FD4 F_State.FD3 F_State.FD2 F_State.FD1 F_State.FD0 
+F_State.FD0 0 0 0 0 0 0 0 0 0 
+F_State.FD1 0 0 0 0 0 0 0 1 1 
+F_State.FD2 0 0 0 0 0 0 1 0 1 
+F_State.FD3 0 0 0 0 0 1 0 0 1 
+F_State.FD4 0 0 0 0 1 0 0 0 1 
+F_State.FD5 0 0 0 1 0 0 0 0 1 
+F_State.FD6 0 0 1 0 0 0 0 0 1 
+F_State.Flag 0 1 0 0 0 0 0 0 1 
+F_State.Idle 1 0 0 0 0 0 0 0 1 

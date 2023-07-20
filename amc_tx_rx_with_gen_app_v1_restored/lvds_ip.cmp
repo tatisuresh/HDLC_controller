@@ -1,0 +1,8 @@
+	component lvds_ip is
+		port (
+			data  : in  std_logic := 'X'; -- data
+			clock : in  std_logic := 'X'; -- clock
+			q     : out std_logic         -- q
+		);
+	end component lvds_ip;
+

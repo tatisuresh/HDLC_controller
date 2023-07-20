@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="tx_rx_sim/tx_rx.vhd" type="VHDL" />
+ <topLevel name="tx_rx" />
+ <deviceFamily name="max10" />
+</simPackage>

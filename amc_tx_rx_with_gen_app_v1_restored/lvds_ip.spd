@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="lvds_ip_sim/lvds_ip.vhd" type="VHDL" />
+ <topLevel name="lvds_ip" />
+ <deviceFamily name="max10" />
+</simPackage>

@@ -1,0 +1,1033 @@
+Timing Analyzer report for AMC
+Thu Jul 20 10:29:39 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Slow 1200mV 100C Model Fmax Summary
+  7. Slow 1200mV 100C Model Setup Summary
+  8. Slow 1200mV 100C Model Hold Summary
+  9. Slow 1200mV 100C Model Recovery Summary
+ 10. Slow 1200mV 100C Model Removal Summary
+ 11. Slow 1200mV 100C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 100C Model Metastability Summary
+ 13. Slow 1200mV -40C Model Fmax Summary
+ 14. Slow 1200mV -40C Model Setup Summary
+ 15. Slow 1200mV -40C Model Hold Summary
+ 16. Slow 1200mV -40C Model Recovery Summary
+ 17. Slow 1200mV -40C Model Removal Summary
+ 18. Slow 1200mV -40C Model Minimum Pulse Width Summary
+ 19. Slow 1200mV -40C Model Metastability Summary
+ 20. Fast 1200mV -40C Model Setup Summary
+ 21. Fast 1200mV -40C Model Hold Summary
+ 22. Fast 1200mV -40C Model Recovery Summary
+ 23. Fast 1200mV -40C Model Removal Summary
+ 24. Fast 1200mV -40C Model Minimum Pulse Width Summary
+ 25. Fast 1200mV -40C Model Metastability Summary
+ 26. Multicorner Timing Analysis Summary
+ 27. Board Trace Model Assignments
+ 28. Input Transition Times
+ 29. Signal Integrity Metrics (Slow 1200mv n40c Model)
+ 30. Signal Integrity Metrics (Slow 1200mv 100c Model)
+ 31. Signal Integrity Metrics (Fast 1200mv n40c Model)
+ 32. Setup Transfers
+ 33. Hold Transfers
+ 34. Recovery Transfers
+ 35. Removal Transfers
+ 36. Report TCCS
+ 37. Report RSKM
+ 38. Unconstrained Paths Summary
+ 39. Clock Status Summary
+ 40. Unconstrained Input Ports
+ 41. Unconstrained Output Ports
+ 42. Unconstrained Input Ports
+ 43. Unconstrained Output Ports
+ 44. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; AMC                                                 ;
+; Device Family         ; MAX 10                                              ;
+; Device Name           ; 10M04SAE144I7G                                      ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Combined                                            ;
+; Rise/Fall Delays      ; Enabled                                             ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.04        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   4.3%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------+
+; SDC File List                                     ;
++---------------+--------+--------------------------+
+; SDC File Path ; Status ; Read at                  ;
++---------------+--------+--------------------------+
+; AMC.out.sdc   ; OK     ; Thu Jul 20 10:29:38 2023 ;
++---------------+--------+--------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                     ;
++---------------------+------+---------+------------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------+
+; Clock Name          ; Type ; Period  ; Frequency  ; Rise  ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                 ;
++---------------------+------+---------+------------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------+
+; altera_reserved_tck ; Base ; 100.000 ; 10.0 MHz   ; 0.000 ; 50.000 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { altera_reserved_tck } ;
+; Clk33mhz_in         ; Base ; 3.030   ; 330.03 MHz ; 0.000 ; 1.515  ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLK0 }                ;
+; Clock160MHz         ; Base ; 6.250   ; 160.0 MHz  ; 0.000 ; 3.125  ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { sig_clk160mhz }       ;
++---------------------+------+---------+------------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 100C Model Fmax Summary                                                                    ;
++------------+-----------------+---------------------+---------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name          ; Note                                              ;
++------------+-----------------+---------------------+---------------------------------------------------+
+; 94.38 MHz  ; 94.38 MHz       ; altera_reserved_tck ;                                                   ;
+; 199.56 MHz ; 74.38 MHz       ; Clk33mhz_in         ; limit due to minimum port rate restriction (tmin) ;
++------------+-----------------+---------------------+---------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++----------------------------------------------+
+; Slow 1200mV 100C Model Setup Summary         ;
++---------------------+--------+---------------+
+; Clock               ; Slack  ; End Point TNS ;
++---------------------+--------+---------------+
+; Clk33mhz_in         ; -1.981 ; -1047.472     ;
+; altera_reserved_tck ; 44.702 ; 0.000         ;
++---------------------+--------+---------------+
+
+
++---------------------------------------------+
+; Slow 1200mV 100C Model Hold Summary         ;
++---------------------+-------+---------------+
+; Clock               ; Slack ; End Point TNS ;
++---------------------+-------+---------------+
+; Clk33mhz_in         ; 0.328 ; 0.000         ;
+; altera_reserved_tck ; 0.346 ; 0.000         ;
++---------------------+-------+---------------+
+
+
++----------------------------------------------+
+; Slow 1200mV 100C Model Recovery Summary      ;
++---------------------+--------+---------------+
+; Clock               ; Slack  ; End Point TNS ;
++---------------------+--------+---------------+
+; Clk33mhz_in         ; -0.259 ; -0.259        ;
+; altera_reserved_tck ; 97.364 ; 0.000         ;
++---------------------+--------+---------------+
+
+
++---------------------------------------------+
+; Slow 1200mV 100C Model Removal Summary      ;
++---------------------+-------+---------------+
+; Clock               ; Slack ; End Point TNS ;
++---------------------+-------+---------------+
+; altera_reserved_tck ; 0.911 ; 0.000         ;
+; Clk33mhz_in         ; 1.100 ; 0.000         ;
++---------------------+-------+---------------+
+
+
++----------------------------------------------------+
+; Slow 1200mV 100C Model Minimum Pulse Width Summary ;
++---------------------+---------+--------------------+
+; Clock               ; Slack   ; End Point TNS      ;
++---------------------+---------+--------------------+
+; Clk33mhz_in         ; -10.415 ; -51.321            ;
+; Clock160MHz         ; -7.195  ; -7.195             ;
+; altera_reserved_tck ; 49.477  ; 0.000              ;
++---------------------+---------+--------------------+
+
+
+------------------------------------------------
+; Slow 1200mV 100C Model Metastability Summary ;
+------------------------------------------------
+Design MTBF is not calculated because the design doesn't meet its timing requirements.
+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Slow 1200mV -40C Model Fmax Summary                                                                    ;
++------------+-----------------+---------------------+---------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name          ; Note                                              ;
++------------+-----------------+---------------------+---------------------------------------------------+
+; 109.05 MHz ; 109.05 MHz      ; altera_reserved_tck ;                                                   ;
+; 226.04 MHz ; 74.38 MHz       ; Clk33mhz_in         ; limit due to minimum port rate restriction (tmin) ;
++------------+-----------------+---------------------+---------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++----------------------------------------------+
+; Slow 1200mV -40C Model Setup Summary         ;
++---------------------+--------+---------------+
+; Clock               ; Slack  ; End Point TNS ;
++---------------------+--------+---------------+
+; Clk33mhz_in         ; -1.394 ; -652.652      ;
+; altera_reserved_tck ; 45.415 ; 0.000         ;
++---------------------+--------+---------------+
+
+
++---------------------------------------------+
+; Slow 1200mV -40C Model Hold Summary         ;
++---------------------+-------+---------------+
+; Clock               ; Slack ; End Point TNS ;
++---------------------+-------+---------------+
+; Clk33mhz_in         ; 0.280 ; 0.000         ;
+; altera_reserved_tck ; 0.297 ; 0.000         ;
++---------------------+-------+---------------+
+
+
++----------------------------------------------+
+; Slow 1200mV -40C Model Recovery Summary      ;
++---------------------+--------+---------------+
+; Clock               ; Slack  ; End Point TNS ;
++---------------------+--------+---------------+
+; Clk33mhz_in         ; 0.051  ; 0.000         ;
+; altera_reserved_tck ; 97.637 ; 0.000         ;
++---------------------+--------+---------------+
+
+
++---------------------------------------------+
+; Slow 1200mV -40C Model Removal Summary      ;
++---------------------+-------+---------------+
+; Clock               ; Slack ; End Point TNS ;
++---------------------+-------+---------------+
+; altera_reserved_tck ; 0.809 ; 0.000         ;
+; Clk33mhz_in         ; 0.952 ; 0.000         ;
++---------------------+-------+---------------+
+
+
++----------------------------------------------------+
+; Slow 1200mV -40C Model Minimum Pulse Width Summary ;
++---------------------+---------+--------------------+
+; Clock               ; Slack   ; End Point TNS      ;
++---------------------+---------+--------------------+
+; Clk33mhz_in         ; -10.415 ; -51.321            ;
+; Clock160MHz         ; -7.195  ; -7.195             ;
+; altera_reserved_tck ; 49.479  ; 0.000              ;
++---------------------+---------+--------------------+
+
+
+------------------------------------------------
+; Slow 1200mV -40C Model Metastability Summary ;
+------------------------------------------------
+Worst-Case MTBF of Design is 0.0 years or 0.0266 seconds.
+Typical MTBF of Design is 0.333 years or 1.05e+07 seconds.
+
+Number of Synchronizer Chains Found: 22
+Shortest Synchronizer Chain: 3 Registers
+Fraction of Chains for which MTBFs Could Not be Calculated: 0.545
+Worst Case Available Settling Time: 2.182 ns
+
+Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+  - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 1.5
+Typical MTBF values are calculated based on the nominal silicon characteristics, at nominal operating conditions.
+  - Under typical conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 3.7
+
+
+
++----------------------------------------------+
+; Fast 1200mV -40C Model Setup Summary         ;
++---------------------+--------+---------------+
+; Clock               ; Slack  ; End Point TNS ;
++---------------------+--------+---------------+
+; Clk33mhz_in         ; 1.004  ; 0.000         ;
+; altera_reserved_tck ; 48.297 ; 0.000         ;
++---------------------+--------+---------------+
+
+
++---------------------------------------------+
+; Fast 1200mV -40C Model Hold Summary         ;
++---------------------+-------+---------------+
+; Clock               ; Slack ; End Point TNS ;
++---------------------+-------+---------------+
+; Clk33mhz_in         ; 0.137 ; 0.000         ;
+; altera_reserved_tck ; 0.144 ; 0.000         ;
++---------------------+-------+---------------+
+
+
++----------------------------------------------+
+; Fast 1200mV -40C Model Recovery Summary      ;
++---------------------+--------+---------------+
+; Clock               ; Slack  ; End Point TNS ;
++---------------------+--------+---------------+
+; Clk33mhz_in         ; 1.639  ; 0.000         ;
+; altera_reserved_tck ; 98.888 ; 0.000         ;
++---------------------+--------+---------------+
+
+
++---------------------------------------------+
+; Fast 1200mV -40C Model Removal Summary      ;
++---------------------+-------+---------------+
+; Clock               ; Slack ; End Point TNS ;
++---------------------+-------+---------------+
+; altera_reserved_tck ; 0.388 ; 0.000         ;
+; Clk33mhz_in         ; 0.449 ; 0.000         ;
++---------------------+-------+---------------+
+
+
++----------------------------------------------------+
+; Fast 1200mV -40C Model Minimum Pulse Width Summary ;
++---------------------+---------+--------------------+
+; Clock               ; Slack   ; End Point TNS      ;
++---------------------+---------+--------------------+
+; Clk33mhz_in         ; -16.970 ; -17.940            ;
+; Clock160MHz         ; -13.750 ; -13.750            ;
+; altera_reserved_tck ; 49.254  ; 0.000              ;
++---------------------+---------+--------------------+
+
+
+------------------------------------------------
+; Fast 1200mV -40C Model Metastability Summary ;
+------------------------------------------------
+Worst-Case MTBF of Design is 0.00266 years or 8.39e+04 seconds.
+Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+
+Number of Synchronizer Chains Found: 22
+Shortest Synchronizer Chain: 3 Registers
+Fraction of Chains for which MTBFs Could Not be Calculated: 0.545
+Worst Case Available Settling Time: 5.926 ns
+
+Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+  - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 1.5
+Typical MTBF values are calculated based on the nominal silicon characteristics, at nominal operating conditions.
+  - Under typical conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 3.7
+
+
+
++-------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                 ;
++----------------------+-----------+-------+----------+---------+---------------------+
+; Clock                ; Setup     ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++----------------------+-----------+-------+----------+---------+---------------------+
+; Worst-case Slack     ; -1.981    ; 0.137 ; -0.259   ; 0.388   ; -16.970             ;
+;  Clk33mhz_in         ; -1.981    ; 0.137 ; -0.259   ; 0.449   ; -16.970             ;
+;  Clock160MHz         ; N/A       ; N/A   ; N/A      ; N/A     ; -13.750             ;
+;  altera_reserved_tck ; 44.702    ; 0.144 ; 97.364   ; 0.388   ; 49.254              ;
+; Design-wide TNS      ; -1047.472 ; 0.0   ; -0.259   ; 0.0     ; -58.516             ;
+;  Clk33mhz_in         ; -1047.472 ; 0.000 ; -0.259   ; 0.000   ; -51.321             ;
+;  Clock160MHz         ; N/A       ; N/A   ; N/A      ; N/A     ; -13.750             ;
+;  altera_reserved_tck ; 0.000     ; 0.000 ; 0.000    ; 0.000   ; 0.000               ;
++----------------------+-----------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                          ;
++---------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin                 ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; TXDA                ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; sig_clk160mhz       ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; /EINT2              ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; pin_127_out         ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; /Ready              ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; pin_136_out         ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; pin_138_out         ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; pin_98_out          ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; pin_111_out         ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[15]               ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[14]               ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[13]               ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[12]               ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[11]               ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[10]               ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[9]                ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[8]                ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[7]                ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[6]                ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[5]                ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[4]                ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[3]                ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[2]                ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[1]                ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; D[0]                ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; altera_reserved_tdo ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++---------------------------------------------------------------------------------+
+; Input Transition Times                                                          ;
++---------------------+-----------------------+-----------------+-----------------+
+; Pin                 ; I/O Standard          ; 10-90 Rise Time ; 90-10 Fall Time ;
++---------------------+-----------------------+-----------------+-----------------+
+; CLK2                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; pin_124_in          ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; CLK1                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[15]               ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[14]               ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[13]               ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[12]               ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[11]               ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[10]               ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[9]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[8]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[7]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[6]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[5]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[4]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[3]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[2]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[1]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; D[0]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; /SCC_RST            ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; CLK0                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; A[5]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; A[1]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; A[6]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; A[7]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; A[3]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; A[4]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; /OE                 ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; /CS2                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; /WE                 ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; A[2]                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; /BLS1               ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; /BLS0               ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; RXDA                ; 3.3-V LVCMOS          ; 2640 ps         ; 2640 ps         ;
+; altera_reserved_tms ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; altera_reserved_tck ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; altera_reserved_tdi ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
++---------------------+-----------------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv n40c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
++---------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                 ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; TXDA                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.15 V              ; -0.0624 V           ; 0.288 V                              ; 0.364 V                              ; 6.7e-10 s                   ; 6.89e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.15 V             ; -0.0624 V          ; 0.288 V                             ; 0.364 V                             ; 6.7e-10 s                  ; 6.89e-10 s                 ; No                        ; No                        ;
+; sig_clk160mhz       ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.15 V              ; -0.0617 V           ; 0.288 V                              ; 0.363 V                              ; 6.7e-10 s                   ; 7.06e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.15 V             ; -0.0617 V          ; 0.288 V                             ; 0.363 V                             ; 6.7e-10 s                  ; 7.06e-10 s                 ; No                        ; No                        ;
+; /EINT2              ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.14 V              ; -0.0535 V           ; 0.216 V                              ; 0.246 V                              ; 8.51e-10 s                  ; 8.41e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.14 V             ; -0.0535 V          ; 0.216 V                             ; 0.246 V                             ; 8.51e-10 s                 ; 8.41e-10 s                 ; No                        ; No                        ;
+; pin_127_out         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.15 V              ; -0.0624 V           ; 0.288 V                              ; 0.364 V                              ; 6.7e-10 s                   ; 6.89e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.15 V             ; -0.0624 V          ; 0.288 V                             ; 0.364 V                             ; 6.7e-10 s                  ; 6.89e-10 s                 ; No                        ; No                        ;
+; /Ready              ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.15 V              ; -0.0617 V           ; 0.288 V                              ; 0.363 V                              ; 6.7e-10 s                   ; 7.06e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.15 V             ; -0.0617 V          ; 0.288 V                             ; 0.363 V                             ; 6.7e-10 s                  ; 7.06e-10 s                 ; No                        ; No                        ;
+; pin_136_out         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.14 V              ; -0.0535 V           ; 0.216 V                              ; 0.246 V                              ; 8.51e-10 s                  ; 8.41e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.14 V             ; -0.0535 V          ; 0.216 V                             ; 0.246 V                             ; 8.51e-10 s                 ; 8.41e-10 s                 ; No                        ; No                        ;
+; pin_138_out         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.14 V              ; -0.0535 V           ; 0.216 V                              ; 0.246 V                              ; 8.51e-10 s                  ; 8.41e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.14 V             ; -0.0535 V          ; 0.216 V                             ; 0.246 V                             ; 8.51e-10 s                 ; 8.41e-10 s                 ; No                        ; No                        ;
+; pin_98_out          ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.15 V              ; -0.0624 V           ; 0.288 V                              ; 0.364 V                              ; 6.7e-10 s                   ; 6.89e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.15 V             ; -0.0624 V          ; 0.288 V                             ; 0.364 V                             ; 6.7e-10 s                  ; 6.89e-10 s                 ; No                        ; No                        ;
+; pin_111_out         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.15 V              ; -0.0624 V           ; 0.288 V                              ; 0.364 V                              ; 6.7e-10 s                   ; 6.89e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.15 V             ; -0.0624 V          ; 0.288 V                             ; 0.364 V                             ; 6.7e-10 s                  ; 6.89e-10 s                 ; No                        ; No                        ;
+; D[15]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.15 V              ; -0.0624 V           ; 0.288 V                              ; 0.364 V                              ; 6.7e-10 s                   ; 6.89e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.15 V             ; -0.0624 V          ; 0.288 V                             ; 0.364 V                             ; 6.7e-10 s                  ; 6.89e-10 s                 ; No                        ; No                        ;
+; D[14]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.15 V              ; -0.0617 V           ; 0.288 V                              ; 0.363 V                              ; 6.7e-10 s                   ; 7.06e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.15 V             ; -0.0617 V          ; 0.288 V                             ; 0.363 V                             ; 6.7e-10 s                  ; 7.06e-10 s                 ; No                        ; No                        ;
+; D[13]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.15 V              ; -0.0617 V           ; 0.288 V                              ; 0.363 V                              ; 6.7e-10 s                   ; 7.06e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.15 V             ; -0.0617 V          ; 0.288 V                             ; 0.363 V                             ; 6.7e-10 s                  ; 7.06e-10 s                 ; No                        ; No                        ;
+; D[12]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.15 V              ; -0.0624 V           ; 0.288 V                              ; 0.364 V                              ; 6.7e-10 s                   ; 6.89e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.15 V             ; -0.0624 V          ; 0.288 V                             ; 0.364 V                             ; 6.7e-10 s                  ; 6.89e-10 s                 ; No                        ; No                        ;
+; D[11]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.15 V              ; -0.0624 V           ; 0.288 V                              ; 0.364 V                              ; 6.7e-10 s                   ; 6.89e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.15 V             ; -0.0624 V          ; 0.288 V                             ; 0.364 V                             ; 6.7e-10 s                  ; 6.89e-10 s                 ; No                        ; No                        ;
+; D[10]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.15 V              ; -0.0617 V           ; 0.288 V                              ; 0.363 V                              ; 6.7e-10 s                   ; 7.06e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.15 V             ; -0.0617 V          ; 0.288 V                             ; 0.363 V                             ; 6.7e-10 s                  ; 7.06e-10 s                 ; No                        ; No                        ;
+; D[9]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.15 V              ; -0.0617 V           ; 0.288 V                              ; 0.363 V                              ; 6.7e-10 s                   ; 7.06e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.15 V             ; -0.0617 V          ; 0.288 V                             ; 0.363 V                             ; 6.7e-10 s                  ; 7.06e-10 s                 ; No                        ; No                        ;
+; D[8]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.14 V              ; -0.0535 V           ; 0.216 V                              ; 0.246 V                              ; 8.51e-10 s                  ; 8.41e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.14 V             ; -0.0535 V          ; 0.216 V                             ; 0.246 V                             ; 8.51e-10 s                 ; 8.41e-10 s                 ; No                        ; No                        ;
+; D[7]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.14 V              ; -0.0537 V           ; 0.217 V                              ; 0.247 V                              ; 8.52e-10 s                  ; 8.41e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.14 V             ; -0.0537 V          ; 0.217 V                             ; 0.247 V                             ; 8.52e-10 s                 ; 8.41e-10 s                 ; No                        ; No                        ;
+; D[6]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.14 V              ; -0.0537 V           ; 0.217 V                              ; 0.247 V                              ; 8.52e-10 s                  ; 8.41e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.14 V             ; -0.0537 V          ; 0.217 V                             ; 0.247 V                             ; 8.52e-10 s                 ; 8.41e-10 s                 ; No                        ; No                        ;
+; D[5]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.14 V              ; -0.0535 V           ; 0.216 V                              ; 0.246 V                              ; 8.51e-10 s                  ; 8.41e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.14 V             ; -0.0535 V          ; 0.216 V                             ; 0.246 V                             ; 8.51e-10 s                 ; 8.41e-10 s                 ; No                        ; No                        ;
+; D[4]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.14 V              ; -0.0537 V           ; 0.217 V                              ; 0.247 V                              ; 8.52e-10 s                  ; 8.41e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.14 V             ; -0.0537 V          ; 0.217 V                             ; 0.247 V                             ; 8.52e-10 s                 ; 8.41e-10 s                 ; No                        ; No                        ;
+; D[3]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.14 V              ; -0.0535 V           ; 0.216 V                              ; 0.246 V                              ; 8.51e-10 s                  ; 8.41e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.14 V             ; -0.0535 V          ; 0.216 V                             ; 0.246 V                             ; 8.51e-10 s                 ; 8.41e-10 s                 ; No                        ; No                        ;
+; D[2]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.14 V              ; -0.0535 V           ; 0.216 V                              ; 0.246 V                              ; 8.51e-10 s                  ; 8.41e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.14 V             ; -0.0535 V          ; 0.216 V                             ; 0.246 V                             ; 8.51e-10 s                 ; 8.41e-10 s                 ; No                        ; No                        ;
+; D[1]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.14 V              ; -0.0537 V           ; 0.217 V                              ; 0.247 V                              ; 8.52e-10 s                  ; 8.41e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.14 V             ; -0.0537 V          ; 0.217 V                             ; 0.247 V                             ; 8.52e-10 s                 ; 8.41e-10 s                 ; No                        ; No                        ;
+; D[0]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.9e-08 V                    ; 3.14 V              ; -0.0535 V           ; 0.216 V                              ; 0.246 V                              ; 8.51e-10 s                  ; 8.41e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 2.9e-08 V                   ; 3.14 V             ; -0.0535 V          ; 0.216 V                             ; 0.246 V                             ; 8.51e-10 s                 ; 8.41e-10 s                 ; No                        ; No                        ;
+; altera_reserved_tdo ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.63e-08 V                   ; 3.24 V              ; -0.165 V            ; 0.415 V                              ; 0.315 V                              ; 2.89e-10 s                  ; 4.38e-10 s                  ; No                         ; No                         ; 3.08 V                      ; 1.63e-08 V                  ; 3.24 V             ; -0.165 V           ; 0.415 V                             ; 0.315 V                             ; 2.89e-10 s                 ; 4.38e-10 s                 ; No                        ; No                        ;
++---------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 100c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
++---------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                 ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; TXDA                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.018 V            ; 0.182 V                              ; 0.242 V                              ; 1.02e-09 s                  ; 1.04e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.018 V           ; 0.182 V                             ; 0.242 V                             ; 1.02e-09 s                 ; 1.04e-09 s                 ; No                        ; Yes                       ;
+; sig_clk160mhz       ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0179 V           ; 0.183 V                              ; 0.242 V                              ; 1.02e-09 s                  ; 1.04e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0179 V          ; 0.183 V                             ; 0.242 V                             ; 1.02e-09 s                 ; 1.04e-09 s                 ; No                        ; Yes                       ;
+; /EINT2              ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0157 V           ; 0.26 V                               ; 0.199 V                              ; 1.09e-09 s                  ; 1.21e-09 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0157 V          ; 0.26 V                              ; 0.199 V                             ; 1.09e-09 s                 ; 1.21e-09 s                 ; Yes                       ; Yes                       ;
+; pin_127_out         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.018 V            ; 0.182 V                              ; 0.242 V                              ; 1.02e-09 s                  ; 1.04e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.018 V           ; 0.182 V                             ; 0.242 V                             ; 1.02e-09 s                 ; 1.04e-09 s                 ; No                        ; Yes                       ;
+; /Ready              ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0179 V           ; 0.183 V                              ; 0.242 V                              ; 1.02e-09 s                  ; 1.04e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0179 V          ; 0.183 V                             ; 0.242 V                             ; 1.02e-09 s                 ; 1.04e-09 s                 ; No                        ; Yes                       ;
+; pin_136_out         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0157 V           ; 0.26 V                               ; 0.199 V                              ; 1.09e-09 s                  ; 1.21e-09 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0157 V          ; 0.26 V                              ; 0.199 V                             ; 1.09e-09 s                 ; 1.21e-09 s                 ; Yes                       ; Yes                       ;
+; pin_138_out         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0157 V           ; 0.26 V                               ; 0.199 V                              ; 1.09e-09 s                  ; 1.21e-09 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0157 V          ; 0.26 V                              ; 0.199 V                             ; 1.09e-09 s                 ; 1.21e-09 s                 ; Yes                       ; Yes                       ;
+; pin_98_out          ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.018 V            ; 0.182 V                              ; 0.242 V                              ; 1.02e-09 s                  ; 1.04e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.018 V           ; 0.182 V                             ; 0.242 V                             ; 1.02e-09 s                 ; 1.04e-09 s                 ; No                        ; Yes                       ;
+; pin_111_out         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.018 V            ; 0.182 V                              ; 0.242 V                              ; 1.02e-09 s                  ; 1.04e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.018 V           ; 0.182 V                             ; 0.242 V                             ; 1.02e-09 s                 ; 1.04e-09 s                 ; No                        ; Yes                       ;
+; D[15]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.018 V            ; 0.182 V                              ; 0.242 V                              ; 1.02e-09 s                  ; 1.04e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.018 V           ; 0.182 V                             ; 0.242 V                             ; 1.02e-09 s                 ; 1.04e-09 s                 ; No                        ; Yes                       ;
+; D[14]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0179 V           ; 0.183 V                              ; 0.242 V                              ; 1.02e-09 s                  ; 1.04e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0179 V          ; 0.183 V                             ; 0.242 V                             ; 1.02e-09 s                 ; 1.04e-09 s                 ; No                        ; Yes                       ;
+; D[13]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0179 V           ; 0.183 V                              ; 0.242 V                              ; 1.02e-09 s                  ; 1.04e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0179 V          ; 0.183 V                             ; 0.242 V                             ; 1.02e-09 s                 ; 1.04e-09 s                 ; No                        ; Yes                       ;
+; D[12]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.018 V            ; 0.182 V                              ; 0.242 V                              ; 1.02e-09 s                  ; 1.04e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.018 V           ; 0.182 V                             ; 0.242 V                             ; 1.02e-09 s                 ; 1.04e-09 s                 ; No                        ; Yes                       ;
+; D[11]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.018 V            ; 0.182 V                              ; 0.242 V                              ; 1.02e-09 s                  ; 1.04e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.018 V           ; 0.182 V                             ; 0.242 V                             ; 1.02e-09 s                 ; 1.04e-09 s                 ; No                        ; Yes                       ;
+; D[10]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0179 V           ; 0.183 V                              ; 0.242 V                              ; 1.02e-09 s                  ; 1.04e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0179 V          ; 0.183 V                             ; 0.242 V                             ; 1.02e-09 s                 ; 1.04e-09 s                 ; No                        ; Yes                       ;
+; D[9]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0179 V           ; 0.183 V                              ; 0.242 V                              ; 1.02e-09 s                  ; 1.04e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0179 V          ; 0.183 V                             ; 0.242 V                             ; 1.02e-09 s                 ; 1.04e-09 s                 ; No                        ; Yes                       ;
+; D[8]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0157 V           ; 0.26 V                               ; 0.199 V                              ; 1.09e-09 s                  ; 1.21e-09 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0157 V          ; 0.26 V                              ; 0.199 V                             ; 1.09e-09 s                 ; 1.21e-09 s                 ; Yes                       ; Yes                       ;
+; D[7]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0165 V           ; 0.26 V                               ; 0.201 V                              ; 1.09e-09 s                  ; 1.21e-09 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0165 V          ; 0.26 V                              ; 0.201 V                             ; 1.09e-09 s                 ; 1.21e-09 s                 ; Yes                       ; Yes                       ;
+; D[6]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0165 V           ; 0.26 V                               ; 0.201 V                              ; 1.09e-09 s                  ; 1.21e-09 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0165 V          ; 0.26 V                              ; 0.201 V                             ; 1.09e-09 s                 ; 1.21e-09 s                 ; Yes                       ; Yes                       ;
+; D[5]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0157 V           ; 0.26 V                               ; 0.199 V                              ; 1.09e-09 s                  ; 1.21e-09 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0157 V          ; 0.26 V                              ; 0.199 V                             ; 1.09e-09 s                 ; 1.21e-09 s                 ; Yes                       ; Yes                       ;
+; D[4]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0165 V           ; 0.26 V                               ; 0.201 V                              ; 1.09e-09 s                  ; 1.21e-09 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0165 V          ; 0.26 V                              ; 0.201 V                             ; 1.09e-09 s                 ; 1.21e-09 s                 ; Yes                       ; Yes                       ;
+; D[3]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0157 V           ; 0.26 V                               ; 0.199 V                              ; 1.09e-09 s                  ; 1.21e-09 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0157 V          ; 0.26 V                              ; 0.199 V                             ; 1.09e-09 s                 ; 1.21e-09 s                 ; Yes                       ; Yes                       ;
+; D[2]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0157 V           ; 0.26 V                               ; 0.199 V                              ; 1.09e-09 s                  ; 1.21e-09 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0157 V          ; 0.26 V                              ; 0.199 V                             ; 1.09e-09 s                 ; 1.21e-09 s                 ; Yes                       ; Yes                       ;
+; D[1]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0165 V           ; 0.26 V                               ; 0.201 V                              ; 1.09e-09 s                  ; 1.21e-09 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0165 V          ; 0.26 V                              ; 0.201 V                             ; 1.09e-09 s                 ; 1.21e-09 s                 ; Yes                       ; Yes                       ;
+; D[0]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.19e-05 V                   ; 3.1 V               ; -0.0157 V           ; 0.26 V                               ; 0.199 V                              ; 1.09e-09 s                  ; 1.21e-09 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 1.19e-05 V                  ; 3.1 V              ; -0.0157 V          ; 0.26 V                              ; 0.199 V                             ; 1.09e-09 s                 ; 1.21e-09 s                 ; Yes                       ; Yes                       ;
+; altera_reserved_tdo ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 6.72e-06 V                   ; 3.15 V              ; -0.0629 V           ; 0.27 V                               ; 0.22 V                               ; 4.76e-10 s                  ; 6.26e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 6.72e-06 V                  ; 3.15 V             ; -0.0629 V          ; 0.27 V                              ; 0.22 V                              ; 4.76e-10 s                 ; 6.26e-10 s                 ; Yes                       ; No                        ;
++---------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv n40c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
++---------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin                 ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; TXDA                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.55 V              ; -0.0394 V           ; 0.416 V                              ; 0.176 V                              ; 5.01e-10 s                  ; 6.35e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.55 V             ; -0.0394 V          ; 0.416 V                             ; 0.176 V                             ; 5.01e-10 s                 ; 6.35e-10 s                 ; No                        ; Yes                       ;
+; sig_clk160mhz       ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.55 V              ; -0.0395 V           ; 0.418 V                              ; 0.177 V                              ; 5.01e-10 s                  ; 6.35e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.55 V             ; -0.0395 V          ; 0.418 V                             ; 0.177 V                             ; 5.01e-10 s                 ; 6.35e-10 s                 ; No                        ; Yes                       ;
+; /EINT2              ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.54 V              ; -0.0393 V           ; 0.274 V                              ; 0.26 V                               ; 6.65e-10 s                  ; 6.77e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.54 V             ; -0.0393 V          ; 0.274 V                             ; 0.26 V                              ; 6.65e-10 s                 ; 6.77e-10 s                 ; No                        ; Yes                       ;
+; pin_127_out         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.55 V              ; -0.0394 V           ; 0.416 V                              ; 0.176 V                              ; 5.01e-10 s                  ; 6.35e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.55 V             ; -0.0394 V          ; 0.416 V                             ; 0.176 V                             ; 5.01e-10 s                 ; 6.35e-10 s                 ; No                        ; Yes                       ;
+; /Ready              ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.55 V              ; -0.0395 V           ; 0.418 V                              ; 0.177 V                              ; 5.01e-10 s                  ; 6.35e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.55 V             ; -0.0395 V          ; 0.418 V                             ; 0.177 V                             ; 5.01e-10 s                 ; 6.35e-10 s                 ; No                        ; Yes                       ;
+; pin_136_out         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.54 V              ; -0.0393 V           ; 0.274 V                              ; 0.26 V                               ; 6.65e-10 s                  ; 6.77e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.54 V             ; -0.0393 V          ; 0.274 V                             ; 0.26 V                              ; 6.65e-10 s                 ; 6.77e-10 s                 ; No                        ; Yes                       ;
+; pin_138_out         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.54 V              ; -0.0393 V           ; 0.274 V                              ; 0.26 V                               ; 6.65e-10 s                  ; 6.77e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.54 V             ; -0.0393 V          ; 0.274 V                             ; 0.26 V                              ; 6.65e-10 s                 ; 6.77e-10 s                 ; No                        ; Yes                       ;
+; pin_98_out          ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.55 V              ; -0.0394 V           ; 0.416 V                              ; 0.176 V                              ; 5.01e-10 s                  ; 6.35e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.55 V             ; -0.0394 V          ; 0.416 V                             ; 0.176 V                             ; 5.01e-10 s                 ; 6.35e-10 s                 ; No                        ; Yes                       ;
+; pin_111_out         ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.55 V              ; -0.0394 V           ; 0.416 V                              ; 0.176 V                              ; 5.01e-10 s                  ; 6.35e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.55 V             ; -0.0394 V          ; 0.416 V                             ; 0.176 V                             ; 5.01e-10 s                 ; 6.35e-10 s                 ; No                        ; Yes                       ;
+; D[15]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.55 V              ; -0.0394 V           ; 0.416 V                              ; 0.176 V                              ; 5.01e-10 s                  ; 6.35e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.55 V             ; -0.0394 V          ; 0.416 V                             ; 0.176 V                             ; 5.01e-10 s                 ; 6.35e-10 s                 ; No                        ; Yes                       ;
+; D[14]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.55 V              ; -0.0395 V           ; 0.418 V                              ; 0.177 V                              ; 5.01e-10 s                  ; 6.35e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.55 V             ; -0.0395 V          ; 0.418 V                             ; 0.177 V                             ; 5.01e-10 s                 ; 6.35e-10 s                 ; No                        ; Yes                       ;
+; D[13]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.55 V              ; -0.0395 V           ; 0.418 V                              ; 0.177 V                              ; 5.01e-10 s                  ; 6.35e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.55 V             ; -0.0395 V          ; 0.418 V                             ; 0.177 V                             ; 5.01e-10 s                 ; 6.35e-10 s                 ; No                        ; Yes                       ;
+; D[12]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.55 V              ; -0.0394 V           ; 0.416 V                              ; 0.176 V                              ; 5.01e-10 s                  ; 6.35e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.55 V             ; -0.0394 V          ; 0.416 V                             ; 0.176 V                             ; 5.01e-10 s                 ; 6.35e-10 s                 ; No                        ; Yes                       ;
+; D[11]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.55 V              ; -0.0394 V           ; 0.416 V                              ; 0.176 V                              ; 5.01e-10 s                  ; 6.35e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.55 V             ; -0.0394 V          ; 0.416 V                             ; 0.176 V                             ; 5.01e-10 s                 ; 6.35e-10 s                 ; No                        ; Yes                       ;
+; D[10]               ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.55 V              ; -0.0395 V           ; 0.418 V                              ; 0.177 V                              ; 5.01e-10 s                  ; 6.35e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.55 V             ; -0.0395 V          ; 0.418 V                             ; 0.177 V                             ; 5.01e-10 s                 ; 6.35e-10 s                 ; No                        ; Yes                       ;
+; D[9]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.55 V              ; -0.0395 V           ; 0.418 V                              ; 0.177 V                              ; 5.01e-10 s                  ; 6.35e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.55 V             ; -0.0395 V          ; 0.418 V                             ; 0.177 V                             ; 5.01e-10 s                 ; 6.35e-10 s                 ; No                        ; Yes                       ;
+; D[8]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.54 V              ; -0.0393 V           ; 0.274 V                              ; 0.26 V                               ; 6.65e-10 s                  ; 6.77e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.54 V             ; -0.0393 V          ; 0.274 V                             ; 0.26 V                              ; 6.65e-10 s                 ; 6.77e-10 s                 ; No                        ; Yes                       ;
+; D[7]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.54 V              ; -0.0388 V           ; 0.276 V                              ; 0.262 V                              ; 6.65e-10 s                  ; 6.77e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.54 V             ; -0.0388 V          ; 0.276 V                             ; 0.262 V                             ; 6.65e-10 s                 ; 6.77e-10 s                 ; No                        ; Yes                       ;
+; D[6]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.54 V              ; -0.0388 V           ; 0.276 V                              ; 0.262 V                              ; 6.65e-10 s                  ; 6.77e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.54 V             ; -0.0388 V          ; 0.276 V                             ; 0.262 V                             ; 6.65e-10 s                 ; 6.77e-10 s                 ; No                        ; Yes                       ;
+; D[5]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.54 V              ; -0.0393 V           ; 0.274 V                              ; 0.26 V                               ; 6.65e-10 s                  ; 6.77e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.54 V             ; -0.0393 V          ; 0.274 V                             ; 0.26 V                              ; 6.65e-10 s                 ; 6.77e-10 s                 ; No                        ; Yes                       ;
+; D[4]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.54 V              ; -0.0388 V           ; 0.276 V                              ; 0.262 V                              ; 6.65e-10 s                  ; 6.77e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.54 V             ; -0.0388 V          ; 0.276 V                             ; 0.262 V                             ; 6.65e-10 s                 ; 6.77e-10 s                 ; No                        ; Yes                       ;
+; D[3]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.54 V              ; -0.0393 V           ; 0.274 V                              ; 0.26 V                               ; 6.65e-10 s                  ; 6.77e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.54 V             ; -0.0393 V          ; 0.274 V                             ; 0.26 V                              ; 6.65e-10 s                 ; 6.77e-10 s                 ; No                        ; Yes                       ;
+; D[2]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.54 V              ; -0.0393 V           ; 0.274 V                              ; 0.26 V                               ; 6.65e-10 s                  ; 6.77e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.54 V             ; -0.0393 V          ; 0.274 V                             ; 0.26 V                              ; 6.65e-10 s                 ; 6.77e-10 s                 ; No                        ; Yes                       ;
+; D[1]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.54 V              ; -0.0388 V           ; 0.276 V                              ; 0.262 V                              ; 6.65e-10 s                  ; 6.77e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.54 V             ; -0.0388 V          ; 0.276 V                             ; 0.262 V                             ; 6.65e-10 s                 ; 6.77e-10 s                 ; No                        ; Yes                       ;
+; D[0]                ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.2e-07 V                    ; 3.54 V              ; -0.0393 V           ; 0.274 V                              ; 0.26 V                               ; 6.65e-10 s                  ; 6.77e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.2e-07 V                   ; 3.54 V             ; -0.0393 V          ; 0.274 V                             ; 0.26 V                              ; 6.65e-10 s                 ; 6.77e-10 s                 ; No                        ; Yes                       ;
+; altera_reserved_tdo ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.46 V                       ; 6.75e-08 V                   ; 3.67 V              ; -0.0271 V           ; 0.366 V                              ; 0.061 V                              ; 2.67e-10 s                  ; 3.36e-10 s                  ; No                         ; Yes                        ; 3.46 V                      ; 6.75e-08 V                  ; 3.67 V             ; -0.0271 V          ; 0.366 V                             ; 0.061 V                             ; 2.67e-10 s                 ; 3.36e-10 s                 ; No                        ; Yes                       ;
++---------------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Setup Transfers                                                                         ;
++---------------------+---------------------+------------+----------+----------+----------+
+; From Clock          ; To Clock            ; RR Paths   ; FR Paths ; RF Paths ; FF Paths ;
++---------------------+---------------------+------------+----------+----------+----------+
+; altera_reserved_tck ; altera_reserved_tck ; 4598       ; 0        ; 62       ; 0        ;
+; Clk33mhz_in         ; altera_reserved_tck ; false path ; 0        ; 0        ; 0        ;
+; altera_reserved_tck ; Clk33mhz_in         ; false path ; 0        ; 0        ; 0        ;
+; Clk33mhz_in         ; Clk33mhz_in         ; 22739      ; 0        ; 0        ; 0        ;
++---------------------+---------------------+------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------+
+; Hold Transfers                                                                          ;
++---------------------+---------------------+------------+----------+----------+----------+
+; From Clock          ; To Clock            ; RR Paths   ; FR Paths ; RF Paths ; FF Paths ;
++---------------------+---------------------+------------+----------+----------+----------+
+; altera_reserved_tck ; altera_reserved_tck ; 4598       ; 0        ; 62       ; 0        ;
+; Clk33mhz_in         ; altera_reserved_tck ; false path ; 0        ; 0        ; 0        ;
+; altera_reserved_tck ; Clk33mhz_in         ; false path ; 0        ; 0        ; 0        ;
+; Clk33mhz_in         ; Clk33mhz_in         ; 22739      ; 0        ; 0        ; 0        ;
++---------------------+---------------------+------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------+
+; Recovery Transfers                                                                      ;
++---------------------+---------------------+------------+----------+----------+----------+
+; From Clock          ; To Clock            ; RR Paths   ; FR Paths ; RF Paths ; FF Paths ;
++---------------------+---------------------+------------+----------+----------+----------+
+; altera_reserved_tck ; altera_reserved_tck ; 107        ; 0        ; 0        ; 0        ;
+; altera_reserved_tck ; Clk33mhz_in         ; false path ; 0        ; 0        ; 0        ;
+; Clk33mhz_in         ; Clk33mhz_in         ; 122        ; 0        ; 0        ; 0        ;
++---------------------+---------------------+------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------+
+; Removal Transfers                                                                       ;
++---------------------+---------------------+------------+----------+----------+----------+
+; From Clock          ; To Clock            ; RR Paths   ; FR Paths ; RF Paths ; FF Paths ;
++---------------------+---------------------+------------+----------+----------+----------+
+; altera_reserved_tck ; altera_reserved_tck ; 107        ; 0        ; 0        ; 0        ;
+; altera_reserved_tck ; Clk33mhz_in         ; false path ; 0        ; 0        ; 0        ;
+; Clk33mhz_in         ; Clk33mhz_in         ; 122        ; 0        ; 0        ; 0        ;
++---------------------+---------------------+------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 1     ; 1    ;
+; Unconstrained Input Ports       ; 32    ; 32   ;
+; Unconstrained Input Port Paths  ; 811   ; 811  ;
+; Unconstrained Output Ports      ; 23    ; 23   ;
+; Unconstrained Output Port Paths ; 41    ; 41   ;
++---------------------------------+-------+------+
+
+
++-----------------------------------------------------------------------------+
+; Clock Status Summary                                                        ;
++--------------------------------+---------------------+------+---------------+
+; Target                         ; Clock               ; Type ; Status        ;
++--------------------------------+---------------------+------+---------------+
+; CLK0                           ; Clk33mhz_in         ; Base ; Constrained   ;
+; CPU_Interafce:inst2|sig_aRxClk ;                     ; Base ; Unconstrained ;
+; altera_reserved_tck            ; altera_reserved_tck ; Base ; Constrained   ;
+; sig_clk160mhz                  ; Clock160MHz         ; Base ; Constrained   ;
++--------------------------------+---------------------+------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                  ;
++---------------------+--------------------------------------------------------------------------------------+
+; Input Port          ; Comment                                                                              ;
++---------------------+--------------------------------------------------------------------------------------+
+; /BLS0               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; /BLS1               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; /CS2                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; /OE                 ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; /SCC_RST            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; /WE                 ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[1]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[2]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[3]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[4]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[5]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[6]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[7]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[0]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[1]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[2]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[3]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[4]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[5]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[6]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[7]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[8]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[9]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[10]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[11]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[12]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[13]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[14]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[15]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; RXDA                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; altera_reserved_tdi ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; altera_reserved_tms ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------------+--------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                  ;
++---------------------+---------------------------------------------------------------------------------------+
+; Output Port         ; Comment                                                                               ;
++---------------------+---------------------------------------------------------------------------------------+
+; /EINT2              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[0]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[1]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[2]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[3]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[4]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[5]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[6]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[7]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[8]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[9]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[10]               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[11]               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[12]               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[13]               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[14]               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[15]               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; TXDA                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; altera_reserved_tdo ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pin_111_out         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pin_127_out         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pin_136_out         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pin_138_out         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------------+---------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                  ;
++---------------------+--------------------------------------------------------------------------------------+
+; Input Port          ; Comment                                                                              ;
++---------------------+--------------------------------------------------------------------------------------+
+; /BLS0               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; /BLS1               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; /CS2                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; /OE                 ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; /SCC_RST            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; /WE                 ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[1]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[2]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[3]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[4]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[5]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[6]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; A[7]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[0]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[1]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[2]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[3]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[4]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[5]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[6]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[7]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[8]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[9]                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[10]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[11]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[12]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[13]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[14]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[15]               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; RXDA                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; altera_reserved_tdi ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; altera_reserved_tms ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------------+--------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                  ;
++---------------------+---------------------------------------------------------------------------------------+
+; Output Port         ; Comment                                                                               ;
++---------------------+---------------------------------------------------------------------------------------+
+; /EINT2              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[0]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[1]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[2]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[3]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[4]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[5]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[6]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[7]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[8]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[9]                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[10]               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[11]               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[12]               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[13]               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[14]               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; D[15]               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; TXDA                ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; altera_reserved_tdo ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pin_111_out         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pin_127_out         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pin_136_out         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; pin_138_out         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Thu Jul 20 10:29:37 2023
+Info: Command: quartus_sta amc -c AMC
+Info: qsta_default_script.tcl version: #1
+Info (293032): Detected changes in source files.
+    Info (293027): Source file: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc has changed.
+Warning (20013): Ignored 3 assignments for entity "tx_rx" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_soft_lvds -entity tx_rx -sip tx_rx.sip -library lib_tx_rx was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 18.1 -entity tx_rx -sip tx_rx.sip -library lib_tx_rx was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity tx_rx -sip tx_rx.sip -library lib_tx_rx was ignored
+Critical Warning (136017): Ignored REPORT_DELAY assignment to name * because the ACF assignment does not support wildcards
+Info (20032): Parallel compilation is enabled and will use up to 2 processors
+Info (21077): Low junction temperature is -40 degrees C
+Info (21077): High junction temperature is 100 degrees C
+Info (332164): Evaluating HDL-embedded SDC commands
+    Info (332165): Entity dcfifo_o8k1
+        Info (332166): set_false_path -from *rdptr_g* -to *ws_dgrp|dffpipe_qe9:dffpipe16|dffe17a* 
+        Info (332166): set_false_path -from *delayed_wrptr_g* -to *rs_dgwp|dffpipe_pe9:dffpipe13|dffe14a* 
+    Info (332165): Entity sld_hub
+        Info (332166): create_clock -name altera_reserved_tck [get_ports {altera_reserved_tck}] -period 10MHz   
+        Info (332166): set_clock_groups -asynchronous -group {altera_reserved_tck}
+Info (332104): Reading SDC File: 'AMC.out.sdc'
+Warning (332043): Overwriting existing clock: altera_reserved_tck
+Warning (332174): Ignored filter at AMC.out.sdc(50): *inst1*|Clock160MHz could not be matched with a clock File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 50
+Warning (332174): Ignored filter at AMC.out.sdc(51): *inst1*|Clock99MHz could not be matched with a clock File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 51
+Warning (332174): Ignored filter at AMC.out.sdc(52): *inst1*|Clock687MHz could not be matched with a clock File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 52
+Warning (332174): Ignored filter at AMC.out.sdc(72): clk_132 could not be matched with a clock File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 72
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(72): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 72
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {/BLS0}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 72
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(73): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 73
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {/BLS1}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 73
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(74): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 74
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {/CS2}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 74
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(75): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 75
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {/OE}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 75
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(76): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 76
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {/SCC_RST}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 76
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(77): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 77
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {/WE}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 77
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(78): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 78
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {A[1]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 78
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(79): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 79
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {A[2]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 79
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(80): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 80
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {A[3]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 80
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(81): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 81
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {A[4]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 81
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(82): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 82
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {A[5]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 82
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(83): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 83
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {A[6]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 83
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(84): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 84
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {A[7]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 84
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(85): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 85
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {CLK0}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 85
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(86): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 86
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {CLK1}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 86
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(87): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 87
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {CLK2}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 87
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(88): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 88
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[0]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 88
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(89): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 89
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[1]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 89
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(90): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 90
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[2]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 90
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(91): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 91
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[3]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 91
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(92): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 92
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[4]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 92
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(93): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 93
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[5]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 93
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(94): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 94
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[6]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 94
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(95): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 95
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[7]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 95
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(96): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 96
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[8]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 96
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(97): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 97
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[9]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 97
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(98): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 98
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[10]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 98
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(99): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 99
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[11]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 99
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(100): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 100
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[12]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 100
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(101): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 101
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[13]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 101
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(102): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 102
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[14]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 102
+Warning (332049): Ignored set_input_delay at AMC.out.sdc(103): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 103
+    Info (332050): set_input_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {D[15]}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 103
+Warning (332049): Ignored set_output_delay at AMC.out.sdc(111): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 111
+    Info (332050): set_output_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {pin_136_out}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 111
+Warning (332049): Ignored set_output_delay at AMC.out.sdc(112): Argument -clock is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 112
+    Info (332050): set_output_delay -add_delay  -clock [get_clocks {clk_132}]  2.000 [get_ports {pin_138_out}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 112
+Warning (332054): Assignment set_clock_groups is accepted but has some problems at AMC.out.sdc(124): Argument -group with value [get_clocks {clk_132}] contains zero elements File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 124
+    Info (332050): set_clock_groups -asynchronous -group [get_clocks {Clock160MHz}] -group [get_clocks {clk_132}] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 124
+Warning (332174): Ignored filter at AMC.out.sdc(131): Clock160MHz could not be matched with a port File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 131
+Warning (332049): Ignored set_false_path at AMC.out.sdc(131): Argument <from> is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 131
+    Info (332050): set_false_path -from [get_ports Clock160MHz ] -to [get_ports CLK0] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 131
+Warning (332049): Ignored set_false_path at AMC.out.sdc(134): Argument <to> is an empty collection File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 134
+    Info (332050): set_false_path -to [get_ports Clock160MHz] -from [get_ports CLK0] File: D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/AMC.out.sdc Line: 134
+Warning (332060): Node: CPU_Interafce:inst2|sig_aRxClk was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register CPU_Interafce:inst2|SC_HDLC_top:x1|HDLC_RECEIVE:RX|RxDataWrite_n is being clocked by CPU_Interafce:inst2|sig_aRxClk
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: altera_internal_jtag  from: tck  to: tckutap
+Warning (332056): PLL cross checking found inconsistent PLL clock settings:
+    Warning (332056): Node: inst1|pll1|altpll_component|auto_generated|pll1|clk[0] was found missing 1 generated clock that corresponds to a base clock with a period of: 30.303
+    Warning (332056): Node: inst1|pll1|altpll_component|auto_generated|pll1|clk[1] was found missing 1 generated clock that corresponds to a base clock with a period of: 30.303
+Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Rise) (setup and hold)
+    Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Fall) (setup and hold)
+    Critical Warning (332169): From Clk33mhz_in (Rise) to Clk33mhz_in (Rise) (setup and hold)
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 100C Model
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -1.981
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.981           -1047.472 Clk33mhz_in 
+    Info (332119):    44.702               0.000 altera_reserved_tck 
+Info (332146): Worst-case hold slack is 0.328
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.328               0.000 Clk33mhz_in 
+    Info (332119):     0.346               0.000 altera_reserved_tck 
+Info (332146): Worst-case recovery slack is -0.259
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.259              -0.259 Clk33mhz_in 
+    Info (332119):    97.364               0.000 altera_reserved_tck 
+Info (332146): Worst-case removal slack is 0.911
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.911               0.000 altera_reserved_tck 
+    Info (332119):     1.100               0.000 Clk33mhz_in 
+Info (332146): Worst-case minimum pulse width slack is -10.415
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -10.415             -51.321 Clk33mhz_in 
+    Info (332119):    -7.195              -7.195 Clock160MHz 
+    Info (332119):    49.477               0.000 altera_reserved_tck 
+Info (332114): Report Metastability: Found 22 synchronizer chains.
+    Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
+Info: Analyzing Slow 1200mV -40C Model
+Warning (332060): Node: CPU_Interafce:inst2|sig_aRxClk was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register CPU_Interafce:inst2|SC_HDLC_top:x1|HDLC_RECEIVE:RX|RxDataWrite_n is being clocked by CPU_Interafce:inst2|sig_aRxClk
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: altera_internal_jtag  from: tck  to: tckutap
+Warning (332056): PLL cross checking found inconsistent PLL clock settings:
+    Warning (332056): Node: inst1|pll1|altpll_component|auto_generated|pll1|clk[0] was found missing 1 generated clock that corresponds to a base clock with a period of: 30.303
+    Warning (332056): Node: inst1|pll1|altpll_component|auto_generated|pll1|clk[1] was found missing 1 generated clock that corresponds to a base clock with a period of: 30.303
+Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Rise) (setup and hold)
+    Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Fall) (setup and hold)
+    Critical Warning (332169): From Clk33mhz_in (Rise) to Clk33mhz_in (Rise) (setup and hold)
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -1.394
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.394            -652.652 Clk33mhz_in 
+    Info (332119):    45.415               0.000 altera_reserved_tck 
+Info (332146): Worst-case hold slack is 0.280
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.280               0.000 Clk33mhz_in 
+    Info (332119):     0.297               0.000 altera_reserved_tck 
+Info (332146): Worst-case recovery slack is 0.051
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.051               0.000 Clk33mhz_in 
+    Info (332119):    97.637               0.000 altera_reserved_tck 
+Info (332146): Worst-case removal slack is 0.809
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.809               0.000 altera_reserved_tck 
+    Info (332119):     0.952               0.000 Clk33mhz_in 
+Info (332146): Worst-case minimum pulse width slack is -10.415
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -10.415             -51.321 Clk33mhz_in 
+    Info (332119):    -7.195              -7.195 Clock160MHz 
+    Info (332119):    49.479               0.000 altera_reserved_tck 
+Info (332114): Report Metastability: Found 22 synchronizer chains.
+    Info (332114): Worst-Case MTBF of Design is 0.0 years or 0.0266 seconds.
+    Info (332114): Typical MTBF of Design is 0.333 years or 1.05e+07 seconds.
+
+    Info (332114): Number of Synchronizer Chains Found: 22
+    Info (332114): Shortest Synchronizer Chain: 3 Registers
+    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 0.545
+    Info (332114): Worst Case Available Settling Time: 2.182 ns
+    Info (332114): 
+    Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+    Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 1.5
+    Info (332114): Typical MTBF values are calculated based on the nominal silicon characteristics, at nominal operating conditions.
+    Info (332114):   - Under typical conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 3.7
+Info: Analyzing Fast 1200mV -40C Model
+Warning (332060): Node: CPU_Interafce:inst2|sig_aRxClk was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register CPU_Interafce:inst2|SC_HDLC_top:x1|HDLC_RECEIVE:RX|RxDataWrite_n is being clocked by CPU_Interafce:inst2|sig_aRxClk
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: altera_internal_jtag  from: tck  to: tckutap
+Warning (332056): PLL cross checking found inconsistent PLL clock settings:
+    Warning (332056): Node: inst1|pll1|altpll_component|auto_generated|pll1|clk[0] was found missing 1 generated clock that corresponds to a base clock with a period of: 30.303
+    Warning (332056): Node: inst1|pll1|altpll_component|auto_generated|pll1|clk[1] was found missing 1 generated clock that corresponds to a base clock with a period of: 30.303
+Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
+    Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Rise) (setup and hold)
+    Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Fall) (setup and hold)
+    Critical Warning (332169): From Clk33mhz_in (Rise) to Clk33mhz_in (Rise) (setup and hold)
+Info (332146): Worst-case setup slack is 1.004
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.004               0.000 Clk33mhz_in 
+    Info (332119):    48.297               0.000 altera_reserved_tck 
+Info (332146): Worst-case hold slack is 0.137
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.137               0.000 Clk33mhz_in 
+    Info (332119):     0.144               0.000 altera_reserved_tck 
+Info (332146): Worst-case recovery slack is 1.639
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.639               0.000 Clk33mhz_in 
+    Info (332119):    98.888               0.000 altera_reserved_tck 
+Info (332146): Worst-case removal slack is 0.388
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.388               0.000 altera_reserved_tck 
+    Info (332119):     0.449               0.000 Clk33mhz_in 
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case minimum pulse width slack is -16.970
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -16.970             -17.940 Clk33mhz_in 
+    Info (332119):   -13.750             -13.750 Clock160MHz 
+    Info (332119):    49.254               0.000 altera_reserved_tck 
+Info (332114): Report Metastability: Found 22 synchronizer chains.
+    Info (332114): Worst-Case MTBF of Design is 0.00266 years or 8.39e+04 seconds.
+    Info (332114): Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+
+    Info (332114): Number of Synchronizer Chains Found: 22
+    Info (332114): Shortest Synchronizer Chain: 3 Registers
+    Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 0.545
+    Info (332114): Worst Case Available Settling Time: 5.926 ns
+    Info (332114): 
+    Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+    Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 1.5
+    Info (332114): Typical MTBF values are calculated based on the nominal silicon characteristics, at nominal operating conditions.
+    Info (332114):   - Under typical conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 3.7
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 75 warnings
+    Info: Peak virtual memory: 4745 megabytes
+    Info: Processing ended: Thu Jul 20 10:29:39 2023
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

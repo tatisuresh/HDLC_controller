@@ -1,0 +1,169 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "TXDA",
+					"strict" : false
+				},
+				{
+					"name" : "/EINT2",
+					"strict" : false
+				},
+				{
+					"name" : "pin_127_out",
+					"strict" : false
+				},
+				{
+					"name" : "pin_136_out",
+					"strict" : false
+				},
+				{
+					"name" : "pin_138_out",
+					"strict" : false
+				},
+				{
+					"name" : "pin_111_out",
+					"strict" : false
+				},
+				{
+					"name" : "D[15]",
+					"strict" : false
+				},
+				{
+					"name" : "D[14]",
+					"strict" : false
+				},
+				{
+					"name" : "D[13]",
+					"strict" : false
+				},
+				{
+					"name" : "D[12]",
+					"strict" : false
+				},
+				{
+					"name" : "D[11]",
+					"strict" : false
+				},
+				{
+					"name" : "D[10]",
+					"strict" : false
+				},
+				{
+					"name" : "D[9]",
+					"strict" : false
+				},
+				{
+					"name" : "D[8]",
+					"strict" : false
+				},
+				{
+					"name" : "D[7]",
+					"strict" : false
+				},
+				{
+					"name" : "D[6]",
+					"strict" : false
+				},
+				{
+					"name" : "D[5]",
+					"strict" : false
+				},
+				{
+					"name" : "D[4]",
+					"strict" : false
+				},
+				{
+					"name" : "D[3]",
+					"strict" : false
+				},
+				{
+					"name" : "D[2]",
+					"strict" : false
+				},
+				{
+					"name" : "D[1]",
+					"strict" : false
+				},
+				{
+					"name" : "D[0]",
+					"strict" : false
+				},
+				{
+					"name" : "/SCC_RST",
+					"strict" : false
+				},
+				{
+					"name" : "A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "/OE",
+					"strict" : false
+				},
+				{
+					"name" : "/CS2",
+					"strict" : false
+				},
+				{
+					"name" : "/WE",
+					"strict" : false
+				},
+				{
+					"name" : "A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "/BLS1",
+					"strict" : false
+				},
+				{
+					"name" : "/BLS0",
+					"strict" : false
+				},
+				{
+					"name" : "RXDA",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

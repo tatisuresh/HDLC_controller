@@ -1,0 +1,267 @@
+Flow report for AMC
+Thu Jul 20 10:29:39 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Thu Jul 20 10:01:01 2023       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; AMC                                         ;
+; Top-level Entity Name              ; amc1feb22                                   ;
+; Family                             ; MAX 10                                      ;
+; Device                             ; 10M04SAE144I7G                              ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 3,393 / 4,032 ( 84 % )                      ;
+;     Total combinational functions  ; 3,051 / 4,032 ( 76 % )                      ;
+;     Dedicated logic registers      ; 1,950 / 4,032 ( 48 % )                      ;
+; Total registers                    ; 1950                                        ;
+; Total pins                         ; 43 / 101 ( 43 % )                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 4,096 / 193,536 ( 2 % )                     ;
+; Embedded Multiplier 9-bit elements ; 0 / 40 ( 0 % )                              ;
+; Total PLLs                         ; 1 / 1 ( 100 % )                             ;
+; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
+; ADC blocks                         ; 0 / 1 ( 0 % )                               ;
++------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 07/20/2023 09:59:58 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; AMC                 ;
++-------------------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                   ;
++--------------------------------------------+--------------------------------------------------+---------------+-------------+----------------------+
+; Assignment Name                            ; Value                                            ; Default Value ; Entity Name ; Section Id           ;
++--------------------------------------------+--------------------------------------------------+---------------+-------------+----------------------+
+; ALLOW_REGISTER_MERGING                     ; Off                                              ; On            ; --          ; --                   ;
+; ALLOW_REGISTER_RETIMING                    ; Off                                              ; On            ; --          ; --                   ;
+; COMPILER_SIGNATURE_ID                      ; 176098375252106.168982739815396                  ; --            ; --          ; --                   ;
+; CYCLONEII_OPTIMIZATION_TECHNIQUE           ; Speed                                            ; Balanced      ; --          ; --                   ;
+; EDA_DESIGN_INSTANCE_NAME                   ; NA                                               ; --            ; --          ; Tb_cpu_tob.vhd       ;
+; EDA_INCLUDE_VHDL_CONFIGURATION_DECLARATION ; Off                                              ; --            ; --          ; eda_simulation       ;
+; EDA_INPUT_DATA_FORMAT                      ; Edif                                             ; --            ; --          ; eda_design_synthesis ;
+; EDA_INPUT_VCC_NAME                         ; Vcc                                              ; --            ; --          ; eda_design_synthesis ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH       ; Tb_cpu_tob.vhd                                   ; --            ; --          ; eda_simulation       ;
+; EDA_OUTPUT_DATA_FORMAT                     ; Verilog                                          ; --            ; --          ; eda_timing_analysis  ;
+; EDA_OUTPUT_DATA_FORMAT                     ; Vhdl                                             ; --            ; --          ; eda_simulation       ;
+; EDA_RUN_TOOL_AUTOMATICALLY                 ; Off                                              ; --            ; --          ; eda_simulation       ;
+; EDA_SIMULATION_TOOL                        ; ModelSim-Altera (VHDL)                           ; <None>        ; --          ; --                   ;
+; EDA_TEST_BENCH_ENABLE_STATUS               ; TEST_BENCH_MODE                                  ; --            ; --          ; eda_simulation       ;
+; EDA_TEST_BENCH_FILE                        ; Tb_tob.vhd                                       ; --            ; --          ; Tb_cpu_tob.vhd       ;
+; EDA_TEST_BENCH_MODULE_NAME                 ; Tb_tob.vhd                                       ; --            ; --          ; Tb_cpu_tob.vhd       ;
+; EDA_TEST_BENCH_NAME                        ; Tb_cpu_tob.vhd                                   ; --            ; --          ; eda_simulation       ;
+; EDA_TIMING_ANALYSIS_TOOL                   ; PrimeTime (Verilog)                              ; <None>        ; --          ; --                   ;
+; ENABLE_BENEFICIAL_SKEW_OPTIMIZATION        ; On                                               ; Off           ; --          ; --                   ;
+; ENABLE_SIGNALTAP                           ; On                                               ; --            ; --          ; --                   ;
+; FITTER_EFFORT                              ; Standard Fit                                     ; Auto Fit      ; --          ; --                   ;
+; FLOW_ENABLE_POWER_ANALYZER                 ; On                                               ; Off           ; --          ; --                   ;
+; MAX_CORE_JUNCTION_TEMP                     ; 100                                              ; --            ; --          ; --                   ;
+; MIN_CORE_JUNCTION_TEMP                     ; -40                                              ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; tx_fifo_inst.vhd                                 ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; tx_fifo.cmp                                      ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; Rxa_fifo.cmp                                     ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; PLL88a160.bsf                                    ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; PLL88a160_inst.vhd                               ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; PLL88a160.inc                                    ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; PLL88a160.cmp                                    ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; PLL88a160.ppf                                    ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; tx_rx_sim/tx_rx.vhd                              ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; lvds_ip.cmp                                      ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; lvds_ip_sim/lvds_ip.vhd                          ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; cdr_fifo.bsf                                     ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; cdr_fifo_inst.vhd                                ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; cdr_fifo.inc                                     ; --            ; --          ; --                   ;
+; MISC_FILE                                  ; cdr_fifo.cmp                                     ; --            ; --          ; --                   ;
+; NUM_PARALLEL_PROCESSORS                    ; 2                                                ; --            ; --          ; --                   ;
+; OPTIMIZATION_MODE                          ; High Performance Effort                          ; Balanced      ; --          ; --                   ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS             ; Half Signal Swing                                ; --            ; --          ; --                   ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS             ; Half Signal Swing                                ; --            ; --          ; --                   ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS            ; Half Vccio                                       ; --            ; --          ; --                   ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS            ; Half Vccio                                       ; --            ; --          ; --                   ;
+; PARTITION_COLOR                            ; -- (Not supported for targeted family)           ; --            ; AMC1feb22   ; Top                  ;
+; PARTITION_FITTER_PRESERVATION_LEVEL        ; -- (Not supported for targeted family)           ; --            ; AMC1feb22   ; Top                  ;
+; PARTITION_NETLIST_TYPE                     ; -- (Not supported for targeted family)           ; --            ; AMC1feb22   ; Top                  ;
+; PHYSICAL_SYNTHESIS_COMBO_LOGIC             ; On                                               ; Off           ; --          ; --                   ;
+; PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION    ; On                                               ; Off           ; --          ; --                   ;
+; PLACEMENT_EFFORT_MULTIPLIER                ; 4.0                                              ; 1.0           ; --          ; --                   ;
+; POWER_BOARD_THERMAL_MODEL                  ; None (CONSERVATIVE)                              ; --            ; --          ; --                   ;
+; POWER_DEFAULT_INPUT_IO_TOGGLE_RATE         ; 12.5 %                                           ; 12.5%         ; --          ; --                   ;
+; POWER_PRESET_COOLING_SOLUTION              ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW            ; --            ; --          ; --                   ;
+; REMOVE_DUPLICATE_REGISTERS                 ; Off                                              ; On            ; --          ; --                   ;
+; ROUTER_TIMING_OPTIMIZATION_LEVEL           ; MAXIMUM                                          ; Normal        ; --          ; --                   ;
+; SEARCH_PATH                                ; ADC/                                             ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; ARMBusInterface/                                 ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; Clock/                                           ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; DACMonitor/                                      ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; DPRAM/                                           ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; DSPBusInterface/                                 ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; DSPControl/                                      ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; DSPPdapInterface/                                ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; LEDS/                                            ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; Protection/                                      ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; Reset/                                           ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; SRC/                                             ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; SyncPulse/                                       ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; Test/                                            ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; TestAndDebug/                                    ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; Version/                                         ; --            ; --          ; --                   ;
+; SEARCH_PATH                                ; WatchRegister/                                   ; --            ; --          ; --                   ;
+; SLD_FILE                                   ; db/stp1_auto_stripped.stp                        ; --            ; --          ; --                   ;
+; SLD_NODE_CREATOR_ID                        ; 110                                              ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_ENTITY_NAME                       ; sld_signaltap                                    ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_NODE_INFO=805334528                          ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_POWER_UP_TRIGGER=0                           ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0    ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_ATTRIBUTE_MEM_MODE=OFF                       ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_STATE_FLOW_USE_GENERATED=0                   ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_STATE_BITS=11                                ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_BUFFER_FULL_STOP=1                           ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_CURRENT_RESOURCE_WIDTH=1                     ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_TRIGGER_IN_ENABLED=0                         ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_TRIGGER_LEVEL_PIPELINE=1                     ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_ENABLE_ADVANCED_TRIGGER=0                    ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_RAM_BLOCK_TYPE=AUTO                          ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_INCREMENTAL_ROUTING=1                        ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_TRIGGER_PIPELINE=0                           ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_COUNTER_PIPELINE=0                           ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_SEGMENT_SIZE=512                             ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_SAMPLE_DEPTH=512                             ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_RAM_PIPELINE=1                               ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_TRIGGER_LEVEL=2                              ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_ADVANCED_TRIGGER_ENTITY=basic,1,basic,1,     ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_DATA_BITS=1                                  ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_TRIGGER_BITS=1                               ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_STORAGE_QUALIFIER_BITS=1                     ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_INVERSION_MASK=00000000000000000000000000000 ; --            ; --          ; auto_signaltap_0     ;
+; SLD_NODE_PARAMETER_ASSIGNMENT              ; SLD_INVERSION_MASK_LENGTH=29                     ; --            ; --          ; auto_signaltap_0     ;
+; SPD_FILE                                   ; tx_rx.spd                                        ; --            ; --          ; --                   ;
+; SPD_FILE                                   ; lvds_ip.spd                                      ; --            ; --          ; --                   ;
+; SYNCHRONIZER_IDENTIFICATION                ; Auto                                             ; Off           ; --          ; --                   ;
+; SYNTHESIS_ONLY_QIP                         ; On                                               ; --            ; --          ; --                   ;
+; TOP_LEVEL_ENTITY                           ; AMC1feb22                                        ; AMC           ; --          ; --                   ;
+; USE_GENERATED_PHYSICAL_CONSTRAINTS         ; Off                                              ; --            ; --          ; eda_palace           ;
+; USE_SIGNALTAP_FILE                         ; stp1.stp                                         ; --            ; --          ; --                   ;
++--------------------------------------------+--------------------------------------------------+---------------+-------------+----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:25     ; 1.0                     ; 4901 MB             ; 00:00:15                           ;
+; Fitter               ; 00:00:21     ; 1.2                     ; 5356 MB             ; 00:00:11                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4684 MB             ; 00:00:01                           ;
+; Power Analyzer       ; 00:00:03     ; 1.4                     ; 4807 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.5                     ; 4784 MB             ; 00:00:03                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4691 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:01     ; 1.1                     ; 4750 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4747 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4743 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4748 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4744 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4751 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:01     ; 1.0                     ; 4750 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4743 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:01     ; 1.0                     ; 4746 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4745 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4742 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4745 MB             ; 00:00:01                           ;
+; Total                ; 00:01:18     ; --                      ; --                  ; 00:00:46                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Power Analyzer       ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-401LVPF  ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off amc -c AMC
+quartus_fit --read_settings_files=off --write_settings_files=off amc -c AMC
+quartus_asm --read_settings_files=off --write_settings_files=off amc -c AMC
+quartus_pow --read_settings_files=off --write_settings_files=off amc -c AMC
+quartus_sta amc -c AMC
+quartus_eda --read_settings_files=off --write_settings_files=off amc -c AMC
+quartus_sta amc -c AMC
+quartus_sta amc -c AMC
+quartus_sta amc -c AMC
+quartus_sta amc -c AMC
+quartus_sta amc -c AMC
+quartus_sta amc -c AMC
+quartus_sta amc -c AMC
+quartus_sta amc -c AMC
+quartus_sta amc -c AMC
+quartus_sta amc -c AMC
+quartus_sta amc -c AMC
+quartus_sta amc -c AMC
+
+
+

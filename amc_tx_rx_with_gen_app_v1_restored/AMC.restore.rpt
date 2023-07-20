@@ -1,0 +1,126 @@
+Restore Archived Project report for AMC
+Mon Jul 10 14:48:00 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Mon Jul 10 14:48:00 2023 ;
+; Revision Name                   ; AMC                                   ;
+; Top-level Entity Name           ; AMC1feb22                             ;
+; Family                          ; MAX 10                                ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored 'D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1.qar' into the 'D:/workspace/HDLC_MAX10FPGA/Work/amc_tx_rx_with_gen_app_v1_restored/' directory
+Info: Generated report 'AMC.restore.rpt'
+Info (23030): Evaluation of Tcl script c:/intelfpga_lite/18.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 54 warnings
+    Info: Peak virtual memory: 4829 megabytes
+    Info: Processing ended: Mon Jul 10 14:48:00 2023
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:00
+
+
++----------------+
+; Files Restored ;
++----------------+
+; File Name      ;
++----------------+
+
+
++----------------------------------+
+; Files Not Restored               ;
++----------------------------------+
+; File Name                        ;
++----------------------------------+
+; qar_info.json                    ;
+; AMC.out.sdc                      ;
+; AMC.pin                          ;
+; AMC.qsf                          ;
+; AMC_assignment_defaults.qdf      ;
+; CPU_Interafce.vhd                ;
+; Clock/clock.tdf                  ;
+; PLL88a160.bsf                    ;
+; PLL88a160.cmp                    ;
+; PLL88a160.inc                    ;
+; PLL88a160.ppf                    ;
+; PLL88a160.qip                    ;
+; PLL88a160.vhd                    ;
+; PLL88a160_inst.vhd               ;
+; Rxa_fifo.cmp                     ;
+; Rxa_fifo.qip                     ;
+; Rxa_fifo.vhd                     ;
+; Tb_tob.vhd                       ;
+; Test/Test_PulsSync_DIVIDER=3.vwf ;
+; amc.qpf                          ;
+; amc1feb22.bdf                    ;
+; cdr_fifo.bsf                     ;
+; cdr_fifo.cmp                     ;
+; cdr_fifo.inc                     ;
+; cdr_fifo.qip                     ;
+; cdr_fifo.vhd                     ;
+; cdr_fifo_inst.vhd                ;
+; data_recovery.vhd                ;
+; db/stp1_auto_stripped.stp        ;
+; fdc.vhd                          ;
+; hdlc_package.vhd                 ;
+; lvds_ip.cmp                      ;
+; lvds_ip.qip                      ;
+; lvds_ip.sip                      ;
+; lvds_ip.spd                      ;
+; lvds_ip.vhd                      ;
+; lvds_ip/lvds_ip_0002.v           ;
+; lvds_ip_sim/lvds_ip.vhd          ;
+; pll88a160.inc                    ;
+; receive.vhd                      ;
+; sc_hdlc_top.vhd                  ;
+; stp1.stp                         ;
+; stp_62bytes_rx.stp               ;
+; sync_fifo.vhd                    ;
+; sync_rxfifo.vhd                  ;
+; transmit.vhd                     ;
+; tx_fifo.cmp                      ;
+; tx_fifo.qip                      ;
+; tx_fifo.vhd                      ;
+; tx_fifo_inst.vhd                 ;
+; tx_rx.sip                        ;
+; tx_rx.spd                        ;
+; tx_rx_sim/tx_rx.vhd              ;
++----------------------------------+
+
+
